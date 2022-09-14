@@ -10,10 +10,10 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
  
 // Import Screens
-import SplashScreen from './Screen/SplashScreen';
-import LoginScreen from './Screen/LoginScreen';
-import RegisterScreen from './Screen/RegisterScreen';
-import DrawerNavigationRoutes from './Screen/DrawerNavigationRoutes';
+import SplashScreen from './src/SplashScreen';
+import LoginScreen from './src/LoginScreen';
+import RegisterScreen from './src/RegisterScreen';
+import DrawerNavigationRoutes from './src/DrawerNavigationRoutes';
  
 const Stack = createStackNavigator();
  
@@ -30,11 +30,11 @@ const Auth = () => {
         name="RegisterScreen"
         component={RegisterScreen}
         options={{
-          title: 'Register', //Set Header Title
+          title: 'Cadastro', //Set Header Title
           headerStyle: {
-            backgroundColor: '#307ecc', //Set Header color
+            backgroundColor: '#1FBAC2', //Set Header color
           },
-          headerTintColor: '#fff', //Set Header text color
+          headerTintColor: '#000000', //Set Header text color
           headerTitleStyle: {
             fontWeight: 'bold', //Set Header text style
           },
