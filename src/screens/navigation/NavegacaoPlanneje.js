@@ -2,20 +2,19 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import Home from './Home';
-import SettingsScreen from './SettingsScreen';
+import HomeScreen from '../HomeScreen';
+import PerfilScreen from '../PerfilScreen';
 
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
-
-const diarioStack = ({navigation}) => {
+const DiarioStack = ({navigation}) => {
     return (
-        <Stack.Navigator initialRouteName='Diario'>
+        <Stack.Navigator initialRouteName='HomeScreen'>
             <Stack.Screen
-                name="Diario"
-                component={Home}
+                name="HomeScreen"
+                component={HomeScreen}
                 options={{
                     title: 'Planneje',
                     headerStyle: {
@@ -31,14 +30,21 @@ const diarioStack = ({navigation}) => {
     );
 };
 
-const perfilStack = ({navigation}) => {
+const PerfilStack = ({navigation}) => {
     return (
-        <Stack.Navigator initialRouteName='Perfil'>
+        <Stack.Navigator initialRouteName='PerfilScreen'>
             <Stack.Screen
-                name="Perfil"
-                component={SettingsScreen}
+                name="PerfilScreen"
+                component={PerfilScreen}
                 options={{
-                    title: 'Perfil'
+                    title: 'Perfil',
+                    headerStyle: {
+                        backgroundColor: '#307ecc',
+                    },
+                    headerTintColor: '#fff',
+                    headerTitleStyle: {
+                        fontWeight: 'bold',
+                    },
                 }}
             />
         </Stack.Navigator>
@@ -48,14 +54,16 @@ const perfilStack = ({navigation}) => {
 
 const NavegacaoPlanneje = () => {
     return (
-        <Tab.Navigator initialRouteName='diarioStack'>
+        <Tab.Navigator
+            initialRouteName='Perfil'
+            screenOptions={{headerShown: false}}>
             <Tab.Screen
-                name="diarioStack"
-                component={diarioStack}
+                name="Diário"
+                component={DiarioStack}
             />
             <Tab.Screen
-                name="perfilStack"
-                component={perfilStack}
+                name="Perfil"
+                component={PerfilStack}
             />
         </Tab.Navigator>
     );

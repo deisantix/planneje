@@ -5,10 +5,10 @@ import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import SplashScreen from './src/views/SplashScreen';
-import LoginScreen from './src/views/auth/LoginScreen';
-import RegisterScreen from './src/views/auth/RegisterScreen';
-import NavegacaoPlanneje from './src/views/NavegacaoPlanneje';
+import SplashScreen from './src/screens/SplashScreen';
+import LoginScreen from './src/screens/auth/LoginScreen';
+import RegisterScreen from './src/screens/auth/RegisterScreen';
+import NavegacaoPlanneje from './src/screens/navigation/NavegacaoPlanneje';
 
 
 const Stack = createStackNavigator();
