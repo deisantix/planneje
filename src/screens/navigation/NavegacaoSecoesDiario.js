@@ -2,9 +2,9 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import HomeScreen from '../diarios/HomeScreen';
-import DiarioCasa from '../diarios/DiarioCasa';
 import DiarioEscola from '../diarios/DiarioEscola';
 import DiarioTrabalho from '../diarios/DiarioTrabalho';
+import NavegacaoTarefasSecao from './NavegacaoTarefasSecao';
 
 
 const Stack = createStackNavigator();
@@ -21,7 +21,7 @@ const NavegacaoSecoesDiario = () => {
     }
 
     return (
-        <Stack.Navigator initialRouteName='DiarioCasa'>
+        <Stack.Navigator initialRouteName='DiarioHome'>
             <Stack.Screen
                 name="DiarioHome"
                 component={HomeScreen}
@@ -33,9 +33,9 @@ const NavegacaoSecoesDiario = () => {
 
             <Stack.Screen
                 name="DiarioCasa"
-                component={DiarioCasa}
+                component={NavegacaoTarefasSecao}
                 options={() => {
-                    optionsHeader.title = "Casa"
+                    optionsHeader.headerShown = false;
                     return optionsHeader;
                 }}
             />

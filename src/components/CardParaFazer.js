@@ -2,8 +2,10 @@ import React from "react";
 import {
     View,
     Text,
+    TouchableOpacity,
     StyleSheet
 } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 
 const CardParaFazer = (props) => {
@@ -16,14 +18,19 @@ const CardParaFazer = (props) => {
         corPrioridade = styles.prioridadeBaixa;
     }
 
+    const navigation = useNavigation();
     return (
-        <View style={styles.paraFazer}>
+        <TouchableOpacity
+            style={styles.paraFazer}
+            onPress={() => {
+                navigation.navigate('Tarefa', { props });
+            }}>
             <View>
                 <Text style={styles.paraFazerTitulo}>{ props.titulo }</Text>
                 <Text style={styles.data}>{ props.data }</Text>
             </View>
             <View style={[styles.prioridade, corPrioridade]}></View>
-        </View>
+        </TouchableOpacity>
     );
 };
 
