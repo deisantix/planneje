@@ -2,8 +2,8 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import HomeScreen from '../HomeScreen';
 import PerfilScreen from '../PerfilScreen';
+import NavegacaoSecoesDiario from './NavegacaoSecoesDiario';
 
 
 const Tab = createBottomTabNavigator();
@@ -11,19 +11,12 @@ const Stack = createStackNavigator();
 
 const DiarioStack = ({navigation}) => {
     return (
-        <Stack.Navigator initialRouteName='HomeScreen'>
+        <Stack.Navigator initialRouteName='NavegacaoSecoesDiario'>
             <Stack.Screen
-                name="HomeScreen"
-                component={HomeScreen}
+                name="NavegacaoSecoesDiario"
+                component={NavegacaoSecoesDiario}
                 options={{
-                    title: 'Planneje',
-                    headerStyle: {
-                        backgroundColor: '#307ecc',
-                    },
-                    headerTintColor: '#fff',
-                    headerTitleStyle: {
-                        fontWeight: 'bold',
-                    },
+                    headerShown: false
                 }}
             />
         </Stack.Navigator>
@@ -55,7 +48,7 @@ const PerfilStack = ({navigation}) => {
 const NavegacaoPlanneje = () => {
     return (
         <Tab.Navigator
-            initialRouteName='Perfil'
+            initialRouteName='Diário'
             screenOptions={{headerShown: false}}>
             <Tab.Screen
                 name="Diário"

@@ -2,19 +2,28 @@ import React from 'react';
 import {
     View,
     Text,
+    TouchableOpacity,
     StyleSheet
 } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 import ListaPlaceholder from './ListaPlaceholder';
 
 
 const SecaoPlanejamento = (props) => {
+    const navigation = useNavigation();
     return (
-        <View style={styles.secaoPlanejamento}>
-            <Text style={styles.tituloSecao}>{ props.tituloSecao }</Text>
+        <TouchableOpacity
+            style={styles.secaoPlanejamento}
+            onPress={() => {
+                navigation.navigate('Diario' + props.titulo);
+            }}>
+            <View>
+                <Text style={styles.tituloSecao}>{ props.titulo }</Text>
 
-            <ListaPlaceholder />
-        </View>
+                <ListaPlaceholder />
+            </View>
+        </TouchableOpacity>
     );
 };
 
