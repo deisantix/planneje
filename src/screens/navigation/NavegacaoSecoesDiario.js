@@ -21,7 +21,7 @@ const NavegacaoSecoesDiario = () => {
     }
 
     return (
-        <Stack.Navigator initialRouteName='DiarioHome'>
+        <Stack.Navigator initialRouteName='DiarioCasa'>
             <Stack.Screen
                 name="DiarioHome"
                 component={HomeScreen}

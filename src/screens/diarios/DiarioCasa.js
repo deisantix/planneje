@@ -1,15 +1,27 @@
 import React from 'react';
 import {
     View,
-    Text
+    SafeAreaView,
 } from 'react-native';
+import CardParaFazer from '../../components/CardParaFazer';
 
 
 const DiarioCasa = () => {
     return (
-        <View>
-            <Text>Diários de Casa</Text>
-        </View>
+        <SafeAreaView>
+            <View>
+                <CardParaFazer
+                    titulo="Lavar a louça"
+                    data="Domingo, 09/10/2022"
+                    prioridade="alta"
+                />
+                <CardParaFazer
+                    titulo="Colocar roupa para lavar"
+                    data="Quarta, 12/10/2022"
+                    prioridade="media"
+                />
+            </View>
+        </SafeAreaView>
     );
 };
 
