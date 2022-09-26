@@ -16,6 +16,8 @@ import {
 
 import Loader from '../../components/Loader';
 
+import { cadastrar } from '../../../bin/scripts/auth/cadastro';
+
 
 const RegisterScreen = (props) => {
     const [ userName, setUserName ] = useState('');
@@ -25,7 +27,7 @@ const RegisterScreen = (props) => {
     const [ userPassword, setUserPassword ] = useState('');
     const [ loading, setLoading ] = useState(false);
     const [ errortext, setErrortext ] = useState('');
-    const [ isRegistraionSuccess, setIsRegistraionSuccess ] = useState(false);
+    const [ isRegistrationSuccess, setIsRegistrationSuccess ] = useState(false);
 
     const emailInputRef = createRef();
     const ageInputRef = createRef();
@@ -57,22 +59,15 @@ const RegisterScreen = (props) => {
         setLoading(true);
 
         var dataToSend = {
-            name: userName,
+            nome: userName,
             email: userEmail,
-            age: userAge,
-            address: userAddress,
-            password: userPassword,
+            senha: userPassword,
+            dataNascimento: userAge,
         };
-        var formBody = [];
-        for (var key in dataToSend) {
-            var encodedKey = encodeURIComponent(key);
-            var encodedValue = encodeURIComponent(dataToSend[key]);
-            formBody.push(encodedKey + '=' + encodedValue);
-        }
-        formBody = formBody.join('&');
+        setIsRegistrationSuccess(cadastrar(dataToSend));
     };
 
-    if (isRegistraionSuccess) {
+    if (isRegistrationSuccess) {
         return (
         <View
             style={{
@@ -177,7 +172,7 @@ const RegisterScreen = (props) => {
                 style={styles.inputStyle}
                 onChangeText={(UserAge) => setUserAge(UserAge)}
                 underlineColorAndroid="#f000"
-                placeholder="Insira sua idade"
+                placeholder="Insira sua data de nascimento"
                 placeholderTextColor="#0000009a"
                 keyboardType="numeric"
                 ref={ageInputRef}

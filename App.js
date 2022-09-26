@@ -42,7 +42,7 @@ const Auth = () => {
 const App = () => {
     return (
         <NavigationContainer>
-            <Stack.Navigator initialRouteName="NavegacaoPlanneje">
+            <Stack.Navigator initialRouteName="Auth">
                 <Stack.Screen
                     name="SplashScreen"
                     component={SplashScreen}
